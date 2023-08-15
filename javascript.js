@@ -36,5 +36,16 @@ function operate(num1, num2, operator) {
     }
 }
 
+const number = document.querySelectorAll(".number")
+const operation = document.querySelectorAll(".operator")
+const display = document.querySelector(".display")
+
+number.forEach((num) => {
+    num.addEventListener('click', () => {
+      display.textContent = num.textContent;
+
+    });
+  });
+
 
 

@@ -1,0 +1,29 @@
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.display {
+    background-color: #282828;
+    color: whitesmoke;
+    font-size: 52px;
+    display: flex;
+    justify-content: flex-end;
+    width: 300px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 300px;
+    height: 150px;
+}
+
+button {
+    flex-grow: 1;
+    flex-basis: 25%;
+    background-color: #282828;
+    color: whitesmoke;
+}
