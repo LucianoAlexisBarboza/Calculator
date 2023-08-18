@@ -2,7 +2,6 @@ let num1;
 let num2;
 let operator;
 let result;
-let num3;
 
 function add(num1, num2) {
     return num1 + num2;
@@ -23,16 +22,16 @@ function divide(num1, num2) {
 function operate(num1, num2, operator) {
     switch (operator) {
         case "+":
-            return result = add(num1, num2);
+            result = add(num1, num2);
             break;
         case "-":
-            return result = subtract(num1, num2);
+            result = subtract(num1, num2);
             break;
         case "*":
-            return result = multiply(num1, num2);
+            result = multiply(num1, num2);
             break;
         case "/":
-            return result = divide(num1, num2);
+            result = divide(num1, num2);
             break;
     }
 }
@@ -64,6 +63,9 @@ number.forEach((num) => {
 
 equals.addEventListener('click', () => {
     operate(num1, num2, operator);
+    num1 = result;
+    num2 = 0;
+    /* operator = undefined; */
     display.textContent = result;
 });
 
