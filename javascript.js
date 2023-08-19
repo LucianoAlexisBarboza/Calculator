@@ -2,6 +2,8 @@ let num1;
 let num2;
 let operator;
 let result;
+let number1 = []; // this variables hold the entire number
+let number2 = [];
 
 function add(num1, num2) {
     return num1 + num2;
@@ -45,11 +47,15 @@ const equals = document.querySelector(".equals");
 number.forEach((num) => {
     num.addEventListener('click', () => {
         if (operator !== undefined) {
-            display.textContent = num.textContent;
-            return num2 = parseInt(display.textContent);
+            number2.push(num.textContent);
+            let fullNumber = number2.join('');
+            display.textContent = fullNumber;
+            num2 = parseInt(display.textContent);
         } else {
-            display.textContent = num.textContent;
-            return num1 = parseInt(display.textContent);
+            number1.push(num.textContent);
+            let fullNumber = number1.join('');
+            display.textContent = fullNumber;
+            num1 = parseInt(display.textContent);
         }
     });
   });
@@ -65,9 +71,12 @@ equals.addEventListener('click', () => {
     operate(num1, num2, operator);
     num1 = result;
     num2 = 0;
+    number1 = [];
+    number2 = [];
     /* operator = undefined; */
     display.textContent = result;
 });
+
 
 
 
