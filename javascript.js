@@ -1,9 +1,10 @@
-let num1;
+let num1; 
 let num2;
 let operator;
 let result;
-let number1 = []; // this variables hold the entire number
+let number1 = []; 
 let number2 = [];
+let operatorCount = 0;
 
 function add(num1, num2) {
     return num1 + num2;
@@ -42,8 +43,9 @@ const number = document.querySelectorAll(".number");
 const operations = document.querySelectorAll(".operator");
 const display = document.querySelector(".display");
 const equals = document.querySelector(".equals");
+const clear = document.querySelector(".clear");
 
-//Event listener
+//Event listeners
 number.forEach((num) => {
     num.addEventListener('click', () => {
         if (operator !== undefined) {
@@ -60,10 +62,23 @@ number.forEach((num) => {
     });
   });
 
+
   operations.forEach((operation) => {
     operation.addEventListener('click', () => {
-        display.textContent = operation.textContent;
-        return operator = display.textContent;
+        if (operatorCount === 0) {
+            operatorCount++;
+            display.textContent = operation.textContent;
+            return operator = display.textContent;
+        } else {
+            operate(num1, num2, operator);
+            operatorCount = 1;
+            num1 = result;
+            num2 = 0;
+            number1 = [];
+            number2 = [];
+            display.textContent = result;
+            operator = operation.textContent;
+        }
     })
   }) 
 
@@ -73,10 +88,16 @@ equals.addEventListener('click', () => {
     num2 = 0;
     number1 = [];
     number2 = [];
-    /* operator = undefined; */
+    operator = undefined;
     display.textContent = result;
 });
 
-
-
-
+clear.addEventListener('click', () => {
+    num1 = 0;
+    num2 = 0;
+    number1 = [];
+    number2 = [];
+    operator = undefined;
+    result = 0;
+    display.textContent = result;
+})
